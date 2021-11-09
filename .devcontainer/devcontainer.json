@@ -1,6 +1,6 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.194.3/containers/javascript-node-mongo
-// Update the VARIANT arg in docker-compose.yml to pick a Node.js version: 10, 12, 14 
+// Update the VARIANT arg in docker-compose.yml to pick a Node.js version: 10, 12, 14
 {
 	"name": "Angular & Mongo DB",
 	"dockerComposeFile": "docker-compose.yml",
@@ -12,12 +12,13 @@
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
-		"mongodb.mongodb-vscode", 
+		"mongodb.mongodb-vscode",
 		"angular.ng-template",
 		"eamodio.gitlens",
 		"editorconfig.editorconfig",
-		"ms-vscode.vscode-typescript-tslint-plugin",	
-	],
+		"ms-vscode.vscode-typescript-tslint-plugin",
+    "nrwl.angular-console",
+  ],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [3000, 27017],
