@@ -35,6 +35,7 @@
     "@nrwl/cli": "13.1.3",
     "@nrwl/cypress": "13.1.3",
     "@nrwl/eslint-plugin-nx": "13.1.3",
+    "@nrwl/express": "^13.1.3",
     "@nrwl/jest": "13.1.3",
     "@nrwl/linter": "13.1.3",
     "@nrwl/tao": "13.1.3",
