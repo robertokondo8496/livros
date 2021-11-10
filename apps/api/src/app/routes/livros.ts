@@ -13,10 +13,10 @@ import { getCollection } from "../util/mongodb";
 
 export const livrosRouter = Router();
 
-artigosRouter.get('/', async (req: Request, res: Response, next: NextFunction) => {
+livrosRouter.get('/', async (req: Request, res: Response, next: NextFunction) => {
   const livros = await getCollection<Livro>(
     req.app,
-    'artigos',
+    'livros',
   ).find().toArray();
-  res.json(artigos);
+  res.json(livros);
 });
