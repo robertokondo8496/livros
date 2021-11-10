@@ -7,6 +7,8 @@ import * as express from 'express';
 
 import { MongoClient } from 'mongodb';
 
+import * as cors from 'cors';
+
 import { livrosRouter } from './app/routes/livros';
 
 MongoClient.connect(
@@ -19,6 +21,8 @@ MongoClient.connect(
 });
 
 const app = express();
+
+app.use(cors());
 
 app.get('/api', (req, res) => {
   res.send({ message: 'Welcome to api!' });
