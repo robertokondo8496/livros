@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
     {
       label: 'Livros',
       icon: 'pi pi-home',
-      routerLink: [ '/home' ],
+      routerLink: [ '/home/lista-livros' ],
     },
   ];
 
