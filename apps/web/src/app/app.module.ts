@@ -5,6 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MenubarModule } from 'primeng/menubar';
 
+import { CardModule } from 'primeng/card';
+import { ButtonModule } from 'primeng/button';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -22,6 +25,8 @@ import { ListaLivrosComponent } from './components/lista-livros/lista-livros.com
     HttpClientModule,
     BrowserAnimationsModule,
     MenubarModule,
+    CardModule,
+    ButtonModule,
   ],
   providers: [
   ],
