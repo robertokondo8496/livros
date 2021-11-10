@@ -10,7 +10,7 @@ import { MongoClient } from 'mongodb';
 MongoClient.connect(
   'mongodb://livros_devcontainer_db_1:27017',
 ).then((client: MongoClient) => {
-  app.locals.db = client.db('artigaria');
+  app.locals.db = client.db('livraria');
   console.log('Conectado ao MongoDB.');
 });
 const app = express();
