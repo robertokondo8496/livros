@@ -6,7 +6,7 @@ import {
 } from "express";
 
 import {
-  Livro,
+  ILivro,
 } from '../../../../../libs/common/src/lib/interfaces/livro';
 
 import { getCollection } from "../util/mongodb";
@@ -14,7 +14,7 @@ import { getCollection } from "../util/mongodb";
 export const livrosRouter = Router();
 
 livrosRouter.get('/', async (req: Request, res: Response, next: NextFunction) => {
-  const livros = await getCollection<Livro>(
+  const livros = await getCollection<ILivro>(
     req.app,
     'livros',
   ).find().toArray();
