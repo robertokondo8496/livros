@@ -14,7 +14,7 @@ import { livrosRouter } from './app/routes/livros';
 MongoClient.connect(
   'mongodb://livros_devcontainer_db_1:27017',
 ).then((client: MongoClient) => {
-  app.locals.db = client.db('livraria');
+  app.locals.db = client.db('livros');
   console.log('Conectado ao MongoDB.');
 }).catch(err => {
   console.error(err);

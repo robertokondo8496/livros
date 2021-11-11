@@ -1,7 +1,7 @@
 export interface ILivro {
-  id: number;
+  _id: number;
   imagem: string;
   titulo: string;
   descricao: string;
-  url:string;
+  url: string;
 }

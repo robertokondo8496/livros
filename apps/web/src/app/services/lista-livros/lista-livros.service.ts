@@ -8,11 +8,8 @@ import {
 
 import {
   Livro,
-} from '../../../../../../libs/common/src/lib/models/livro';
-
-import {
   ILivro,
-} from '../../../../../../libs/common/src/lib/interfaces/livro';
+} from '@livros/common';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +25,7 @@ export class ListaLivrosService {
     return this.httpClient.get<ILivro[]>(`http://localhost:3333/api/livros`).pipe(
       map((iLivros: ILivro[]) => {
         return iLivros.map((iLivro: ILivro) => new Livro(
-          iLivro.id,
+          iLivro._id,
           iLivro.imagem,
           iLivro.titulo,
           iLivro.descricao,

@@ -6,15 +6,15 @@ import {
 } from "express";
 
 import {
-  ILivro,
-} from '../../../../../libs/common/src/lib/interfaces/livro';
+  Livro,
+} from '@livros/common';
 
 import { getCollection } from "../util/mongodb";
 
 export const livrosRouter = Router();
 
 livrosRouter.get('/', async (req: Request, res: Response, next: NextFunction) => {
-  const livros = await getCollection<ILivro>(
+  const livros = await getCollection<Livro>(
     req.app,
     'livros',
   ).find().toArray();

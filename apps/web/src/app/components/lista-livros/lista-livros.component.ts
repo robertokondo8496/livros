@@ -14,7 +14,6 @@ import { ListaLivrosService } from '../../services/lista-livros/lista-livros.ser
 export class ListaLivrosComponent implements OnInit {
 
   public livros$: Observable<Livro[]> = this.listaLivrosService.getAll();
-
   constructor(
     private listaLivrosService: ListaLivrosService,
   ) { }
