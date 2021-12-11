@@ -29,6 +29,10 @@ import { ListaLivrosComponent } from './components/lista-livros/lista-livros.com
     ButtonModule,
   ],
   providers: [
+    {
+      provide: 'API_BASE_URL',
+      useValue: 'http://localhost:3333/api',
+    },
   ],
   bootstrap: [
     AppComponent,
