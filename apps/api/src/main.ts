@@ -10,6 +10,7 @@ import { MongoClient } from 'mongodb';
 import * as cors from 'cors';
 
 import { livrosRouter } from './app/routes/livros';
+import { json } from 'body-parser';
 
 MongoClient.connect(
   'mongodb://livros_devcontainer_db_1:27017',
@@ -23,6 +24,7 @@ MongoClient.connect(
 const app = express();
 
 app.use(cors());
+app.use(json());
 
 app.get('/api', (req, res) => {
   res.send({ message: 'Welcome to api!' });
