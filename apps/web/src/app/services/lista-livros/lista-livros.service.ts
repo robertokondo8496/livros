@@ -25,13 +25,7 @@ export class ListaLivrosService {
   public getAll(): Observable<Livro[]> {
     return this.httpClient.get<ILivro[]>(`${this.apiBaseUrl}/livross`).pipe(
       map((iLivros: ILivro[]) => {
-        return iLivros.map((iLivro: ILivro) => new Livro(
-          iLivro._id,
-          iLivro.imagem,
-          iLivro.titulo,
-          iLivro.descricao,
-          iLivro.url,
-        ));
+        return iLivros.map((iLivro: ILivro) => Livro.fromJson(iLivro));
       }),
     );
   }
