@@ -13,6 +13,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { ListaLivrosComponent } from './components/lista-livros/lista-livros.component';
 
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,8 +30,10 @@ import { ListaLivrosComponent } from './components/lista-livros/lista-livros.com
     MenubarModule,
     CardModule,
     ButtonModule,
+    ToastModule,
   ],
   providers: [
+    MessageService,
     {
       provide: 'API_BASE_URL',
       useValue: 'http://localhost:3333/api',
