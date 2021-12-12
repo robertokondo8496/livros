@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
-
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 @Component({
   selector: 'livros-livro',
   templateUrl: './livro.component.html',
   styleUrls: ['./livro.component.css']
 })
-export class LivroComponent implements OnInit {
+export class LivroComponent implements OnInit, OnDestroy{
   public formGroup: FormGroup = this.formBuilder.group({
     _id: [''],
     titulo: [''],
@@ -16,15 +17,24 @@ export class LivroComponent implements OnInit {
     url: [''],
   });
 
+  private subUnsubscribe: Subject<void> = new Subject();
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
   ) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params: Params) => {
+    this.activatedRoute.params.pipe(
+      takeUntil(this.subUnsubscribe),
+    ).subscribe((params: Params) => {
       const artigoId: number = +params.id;
     });
+  }
+
+  ngOnDestroy(): void {
+    this.subUnsubscribe.next();
+    this.subUnsubscribe.complete();
   }
 
   public salvar(): void {
