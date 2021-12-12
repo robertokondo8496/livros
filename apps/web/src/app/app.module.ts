@@ -15,6 +15,7 @@ import { ListaLivrosComponent } from './components/lista-livros/lista-livros.com
 
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { AuthModule } from './modules/auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MessageService } from 'primeng/api';
     CardModule,
     ButtonModule,
     ToastModule,
+    AuthModule,
   ],
   providers: [
     MessageService,
