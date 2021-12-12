@@ -7,7 +7,8 @@ import {
 
 import {
   IUsuario,
-} from '@artigaria/common';
+  AuthResult,
+} from '@livros/common';
 
 import { getCollection } from "../util/mongodb";
 import { checkString, sanitizeUsuario } from "../util/sanitization";
@@ -37,7 +38,7 @@ authRouter.post('/login', async (req: Request, res: Response, next: NextFunction
     res.json({
       jwt: criarToken(usuario),
       usuario: sanitizeUsuario(usuario),
-    });
+    } as AuthResult);
   } else {
     res.status(401);
     next(new Error('Login ou senha errados'));
