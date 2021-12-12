@@ -8,6 +8,8 @@ import { ButtonModule } from 'primeng/button';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './components/login/login.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './interceptors/jwt/jwt.interceptor';
 
 
 @NgModule({
@@ -23,6 +25,13 @@ import { LoginComponent } from './components/login/login.component';
   ],
   exports: [
     LoginComponent
-  ]
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true,
+    },
+  ],
 })
 export class AuthModule { }
