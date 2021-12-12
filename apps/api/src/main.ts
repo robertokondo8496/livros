@@ -12,6 +12,7 @@ import * as cors from 'cors';
 import { authRouter } from './app/routes/auth';
 import { livrosRouter } from './app/routes/livros';
 import { json } from 'body-parser';
+import { requireJwtToken } from './app/middlewares/jwt';
 
 MongoClient.connect(
   'mongodb://livros_devcontainer_db_1:27017',
@@ -33,7 +34,7 @@ app.get('/api', (req, res) => {
 
 app.use('/api/auth', authRouter);
 
-app.use('/api/livros', livrosRouter);
+app.use('/api/livros', requireJwtToken, livrosRouter);
 
 const port = process.env.port || 3333;
 const server = app.listen(port, () => {
