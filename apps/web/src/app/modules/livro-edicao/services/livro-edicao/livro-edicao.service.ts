@@ -5,7 +5,7 @@ import {
 } from '@angular/core';
 
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 
 import {
   Livro,
@@ -27,6 +27,15 @@ export class LivroEdicaoService {
         return Livro.fromJson(iLivro);
       }),
     );
+  }
+
+  public put(iLivro: ILivro): void {
+    this.httpClient.put<unknown>(
+      `${this.apiBaseUrl}/Livros/${iLivro._id}`,
+      iLivro,
+    ).pipe(
+      take(1),
+    ).subscribe(results => console.log(results));
   }
 
 }

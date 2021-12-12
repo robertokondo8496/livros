@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subject } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
-import { Livro } from '@livros/common';
+import { Livro, ILivro } from '@livros/common';
 
 import { LivroEdicaoService } from '../../services/livro-edicao/livro-edicao.service';
 
@@ -48,7 +48,8 @@ export class LivroComponent implements OnInit, OnDestroy{
   }
 
   public salvar(): void {
-    console.log(this.formGroup.value);
+    const iLivro: ILivro = this.formGroup.value;
+    this.livroEdicaoService.put(iLivro);
   }
 
 }
