@@ -9,6 +9,7 @@ import { MongoClient } from 'mongodb';
 
 import * as cors from 'cors';
 
+import { authRouter } from './app/routes/auth';
 import { livrosRouter } from './app/routes/livros';
 import { json } from 'body-parser';
 
@@ -29,6 +30,8 @@ app.use(json());
 app.get('/api', (req, res) => {
   res.send({ message: 'Welcome to api!' });
 });
+
+app.use('/api/auth', authRouter);
 
 app.use('/api/livros', livrosRouter);
 
