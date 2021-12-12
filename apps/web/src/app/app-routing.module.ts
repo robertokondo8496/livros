@@ -23,6 +23,12 @@ const routes: Routes = [
         path: 'lista-livros',
         component: ListaLivrosComponent,
       },
+      {
+        path: 'editar-livro',
+        loadChildren: () => import(
+          './modules/livro-edicao/livro-edicao.module'
+        ).then(mod => mod.LivroEdicaoModule),
+      },
     ],
   },
 ];
