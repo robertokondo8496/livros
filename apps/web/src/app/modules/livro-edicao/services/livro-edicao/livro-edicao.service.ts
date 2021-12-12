@@ -29,13 +29,13 @@ export class LivroEdicaoService {
     );
   }
 
-  public put(iLivro: ILivro): void {
-    this.httpClient.put<unknown>(
-      `${this.apiBaseUrl}/Livros/${iLivro._id}`,
+  public put(iLivro: ILivro): Observable<ModifyResult<ILivro>> {
+    return this.httpClient.put<ModifyResult<ILivro>>(
+      `${this.apiBaseUrl}/livros/${iLivro._id}`,
       iLivro,
     ).pipe(
       take(1),
-    ).subscribe(results => console.log(results));
+    );
   }
 
 }

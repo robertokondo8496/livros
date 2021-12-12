@@ -1,11 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
 import { Livro, ILivro } from '@livros/common';
 
 import { LivroEdicaoService } from '../../services/livro-edicao/livro-edicao.service';
+import { ModifyResult } from 'mongodb';
 
 @Component({
   selector: 'livros-livro',
@@ -24,6 +25,7 @@ export class LivroComponent implements OnInit, OnDestroy{
   private subUnsubscribe: Subject<void> = new Subject();
 
   constructor(
+    private router: Router,
     private livroEdicaoService: LivroEdicaoService,
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
@@ -49,7 +51,13 @@ export class LivroComponent implements OnInit, OnDestroy{
 
   public salvar(): void {
     const iLivro: ILivro = this.formGroup.value;
-    this.livroEdicaoService.put(iLivro);
+    this.livroEdicaoService.put(iLivro).subscribe(
+      (results: ModifyResult<ILivro>) => {
+        if (results.ok) {
+          this.router.navigate(['/']);
+        }
+      },
+    );
   }
 
 }
