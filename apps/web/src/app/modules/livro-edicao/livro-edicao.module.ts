@@ -7,11 +7,13 @@ import { ButtonModule } from 'primeng/button';
 
 import { LivroEdicaoRoutingModule } from './livro-edicao-routing.module';
 import { LivroComponent } from './components/livro/livro.component';
+import { SrcDebounceDirective } from './directives/src-debounce/src-debounce.directive';
 
 
 @NgModule({
   declarations: [
-    LivroComponent
+    LivroComponent,
+    SrcDebounceDirective
   ],
   imports: [
     CommonModule,
