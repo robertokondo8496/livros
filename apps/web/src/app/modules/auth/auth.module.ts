@@ -19,7 +19,7 @@ import { LoginComponent } from './components/login/login.component';
     ReactiveFormsModule,
     AuthRoutingModule,
     InputTextModule,
-    ButtonModule,    
+    ButtonModule,
   ],
   exports: [
     LoginComponent
