@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MenuItem } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'livros-home',
@@ -17,9 +18,14 @@ export class HomeComponent implements OnInit {
     },
   ];
 
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
   }
-
+  public logout(): void {
+    window.localStorage.removeItem('jwt');
+    this.router.navigate([ '/login' ]);
+  }
 }
